@@ -1,7 +1,7 @@
 {
   "name": "rogerroger-mcp-server",
-  "version": "1.0.0",
-  "description": "Model Context Protocol server for RogerRoger CRM API",
+  "version": "1.0.1",
+  "description": "Model Context Protocol server for RogerRoger API",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
@@ -22,7 +22,7 @@
     "api",
     "claude"
   ],
-  "author": "Your Name",
+  "author": "jasper@rogerroger.io",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.4.0",
@@ -43,10 +43,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/rogerroger-mcp-server.git"
+    "url": "https://github.com/rogerrogerhq/rogerroger-mcp-server.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/rogerroger-mcp-server/issues"
+    "url": "https://github.com/rogerrogerhq/rogerroger-mcp-server/issues"
   },
-  "homepage": "https://github.com/yourusername/rogerroger-mcp-server#readme"
+  "homepage": "https://github.com/rogerrogerhq/rogerroger-mcp-server#readme"
 }
