@@ -9,47 +9,39 @@ A Model Context Protocol (MCP) server for the [RogerRoger API](https://developer
 - 🔐 **Secure Authentication**: Uses API keys for secure access
 - 📊 **Pagination Support**: Handle large datasets efficiently
 
-## Installation
+## Setup Instructions
 
-### Prerequisites
+### Basic Setup
 
-- Node.js 18 or higher
-- A RogerRoger account with API access
-- RogerRoger API key (get one from [your admin panel](https://app.rogerroger.io/admin/api))
-
-### Option 1: Install from npm (Recommended)
-
-Once published, you can install globally:
+1. **Install the package:**
 
 ```bash
 npm install -g rogerroger-mcp-server
 ```
 
-### Option 2: Install from source
+2. **Get your RogerRoger API key:**
+
+   - Log in to your RogerRoger account
+   - Navigate to [Admin Panel > API](https://app.rogerroger.io/admin/api)
+   - Generate or copy your API key
+
+3. **Run the server:**
 
 ```bash
-git clone https://github.com/yourusername/rogerroger-mcp-server.git
-cd rogerroger-mcp-server
-npm install
-npm run build
+npx rogerroger-mcp-server
 ```
 
-## Setup with Claude Desktop
+### Claude Desktop Setup
 
-### Step 1: Get Your API Key
+To set up this MCP server in Claude Desktop:
 
-1. Log in to your RogerRoger account
-2. Navigate to [Admin Panel > API](https://app.rogerroger.io/admin/api)
-3. Generate or copy your API key
+1. **Install the package globally** if you haven't already:
 
-### Step 2: Configure Claude Desktop
+```bash
+npm install -g rogerroger-mcp-server
+```
 
-Locate your Claude Desktop configuration file:
-
-- **MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
-
-Add the RogerRoger MCP server configuration:
+2. **Create or edit** the Claude Desktop configuration file (usually in `~/Library/Application Support/Claude/claude_desktop_config.json`) to include the MCP server configuration:
 
 ```json
 {
@@ -65,7 +57,22 @@ Add the RogerRoger MCP server configuration:
 }
 ```
 
-**Note**: If you installed from source instead of npm, replace the configuration with:
+3. **Restart Claude Desktop** completely (quit and reopen).
+
+4. **Verify the connection** - you should see the RogerRoger MCP server indicator in Claude Desktop.
+
+### Installing from Source
+
+If you prefer to install from source:
+
+```bash
+git clone https://github.com/rogerrogerhq/rogerroger-mcp-server.git
+cd rogerroger-mcp-server
+npm install
+npm run build
+```
+
+Then update your Claude Desktop configuration to use the local installation:
 
 ```json
 {
@@ -80,18 +87,6 @@ Add the RogerRoger MCP server configuration:
   }
 }
 ```
-
-### Step 3: Restart Claude Desktop
-
-After saving the configuration file, restart Claude Desktop completely (quit and reopen).
-
-### Step 4: Verify Installation
-
-In Claude Desktop, you should see the RogerRoger MCP server connection indicator. You can now use commands like:
-
-- "Show me all my contacts in RogerRoger"
-- "Create a new contact named John Doe with email john@example.com"
-- "List all my tasks"
 
 ## Configuration Options
 
@@ -180,7 +175,7 @@ await callTool("create_task", {
 ### Setup
 
 ```bash
-git clone https://github.com/yourusername/rogerroger-mcp-server.git
+git clone https://github.com/rogerrogerhq/rogerroger-mcp-server.git
 cd rogerroger-mcp-server
 npm install
 ```
@@ -255,10 +250,13 @@ All errors are returned as structured MCP responses with descriptive messages.
 
 ## Security Notes
 
-- Never commit your API key to version control
-- Use environment variables for sensitive configuration
-- The API key is passed securely via headers, never in URLs
-- All requests are made over HTTPS
+This server should be deployed with appropriate security measures, as it provides access to your senstive data.
+Consider:
+
+- Running behind a secure proxy
+- Implementing authentication for the MCP server
+- Using HTTPS
+- Restricting network access
 
 ## License
 
@@ -266,7 +264,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Support
 
-- 🐛 [Report Issues](https://github.com/jpegtel/rogerroger-mcp-server/issues)
+- 🐛 [Report Issues](https://github.com/rogerrogerhq/rogerroger-mcp-server/issues)
 - 📖 [RogerRoger API Docs](https://developer.rogerroger.io/)
 - 💬 [Model Context Protocol](https://modelcontextprotocol.io/)
 
