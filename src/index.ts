@@ -25,7 +25,7 @@ class RogerRogerMCP {
 
     this.server = new Server({
       name: "rogerroger-mcp",
-      version: "1.0.0",
+      version: "1.0.3",
     });
 
     this.setupTools();
@@ -53,13 +53,17 @@ class RogerRogerMCP {
             inputSchema: {
               type: "object",
               properties: {
-                limit: {
+                page: {
                   type: "number",
-                  description: "Number of records to retrieve (optional)",
+                  description: "Collection page number (default: 1)",
                 },
-                offset: {
+                itemsPerPage: {
                   type: "number",
-                  description: "Offset for pagination (optional)",
+                  description: "Items per page, max 30 (default: 15)",
+                },
+                q: {
+                  type: "string",
+                  description: "Search query to filter people by name, email, or other fields",
                 },
               },
             },
@@ -161,13 +165,13 @@ class RogerRogerMCP {
             inputSchema: {
               type: "object",
               properties: {
-                limit: {
+                page: {
                   type: "number",
-                  description: "Number of records to retrieve (optional)",
+                  description: "Collection page number (default: 1)",
                 },
-                offset: {
+                itemsPerPage: {
                   type: "number",
-                  description: "Offset for pagination (optional)",
+                  description: "Items per page, max 30 (default: 15)",
                 },
                 status: {
                   type: "string",
@@ -212,13 +216,17 @@ class RogerRogerMCP {
             inputSchema: {
               type: "object",
               properties: {
-                limit: {
+                page: {
                   type: "number",
-                  description: "Number of records to retrieve (optional)",
+                  description: "Collection page number (default: 1)",
                 },
-                offset: {
+                itemsPerPage: {
                   type: "number",
-                  description: "Offset for pagination (optional)",
+                  description: "Items per page, max 30 (default: 15)",
+                },
+                q: {
+                  type: "string",
+                  description: "Search query to filter organizations by name or other fields",
                 },
               },
             },
@@ -656,8 +664,9 @@ class RogerRogerMCP {
 
   private async getPeople(args: any) {
     const params: Record<string, string> = {};
-    if (args.limit) params.limit = args.limit.toString();
-    if (args.offset) params.offset = args.offset.toString();
+    if (args.page) params.page = args.page.toString();
+    if (args.itemsPerPage) params.itemsPerPage = args.itemsPerPage.toString();
+    if (args.q) params.q = args.q;
 
     const data = await this.makeRequest("/people", { params });
 
@@ -734,8 +743,8 @@ class RogerRogerMCP {
 
   private async getTasks(args: any) {
     const params: Record<string, string> = {};
-    if (args.limit) params.limit = args.limit.toString();
-    if (args.offset) params.offset = args.offset.toString();
+    if (args.page) params.page = args.page.toString();
+    if (args.itemsPerPage) params.itemsPerPage = args.itemsPerPage.toString();
     if (args.status) params.status = args.status;
 
     const data = await this.makeRequest("/tasks", { params });
@@ -768,8 +777,9 @@ class RogerRogerMCP {
 
   private async getOrganizations(args: any) {
     const params: Record<string, string> = {};
-    if (args.limit) params.limit = args.limit.toString();
-    if (args.offset) params.offset = args.offset.toString();
+    if (args.page) params.page = args.page.toString();
+    if (args.itemsPerPage) params.itemsPerPage = args.itemsPerPage.toString();
+    if (args.q) params.q = args.q;
 
     const data = await this.makeRequest("/organizations", { params });
 

@@ -374,6 +374,10 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Changelog
 
+### v1.0.3
+
+- Bug fixes on search
+
 ### v1.0.2
 
 - Added organizations management endpoints
