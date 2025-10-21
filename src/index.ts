@@ -206,6 +206,308 @@ class RogerRogerMCP {
               required: ["title"],
             },
           },
+          {
+            name: "get_organizations",
+            description: "Retrieve all organizations from RogerRoger CRM",
+            inputSchema: {
+              type: "object",
+              properties: {
+                limit: {
+                  type: "number",
+                  description: "Number of records to retrieve (optional)",
+                },
+                offset: {
+                  type: "number",
+                  description: "Offset for pagination (optional)",
+                },
+              },
+            },
+          },
+          {
+            name: "get_organization",
+            description: "Retrieve a specific organization by ID",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the organization to retrieve",
+                },
+              },
+              required: ["id"],
+            },
+          },
+          {
+            name: "create_organization",
+            description: "Create a new organization in RogerRoger",
+            inputSchema: {
+              type: "object",
+              properties: {
+                name: {
+                  type: "string",
+                  description: "Organization name",
+                },
+                website: {
+                  type: "string",
+                  description: "Organization website",
+                },
+                industry: {
+                  type: "string",
+                  description: "Industry type",
+                },
+                employees: {
+                  type: "number",
+                  description: "Number of employees",
+                },
+                notes: {
+                  type: "string",
+                  description: "Additional notes",
+                },
+              },
+            },
+          },
+          {
+            name: "update_organization",
+            description: "Update an existing organization",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the organization to update",
+                },
+                name: {
+                  type: "string",
+                  description: "Organization name",
+                },
+                website: {
+                  type: "string",
+                  description: "Organization website",
+                },
+                industry: {
+                  type: "string",
+                  description: "Industry type",
+                },
+                employees: {
+                  type: "number",
+                  description: "Number of employees",
+                },
+                notes: {
+                  type: "string",
+                  description: "Additional notes",
+                },
+              },
+              required: ["id"],
+            },
+          },
+          {
+            name: "delete_organization",
+            description: "Delete an organization",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the organization to delete",
+                },
+              },
+              required: ["id"],
+            },
+          },
+          {
+            name: "get_lists",
+            description: "Retrieve all lists/segments from RogerRoger",
+            inputSchema: {
+              type: "object",
+              properties: {
+                page: {
+                  type: "number",
+                  description: "Collection page number (default: 1)",
+                },
+                itemsPerPage: {
+                  type: "number",
+                  description: "Items per page, max 30 (default: 15)",
+                },
+              },
+            },
+          },
+          {
+            name: "get_list",
+            description: "Retrieve a specific list/segment by ID",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the list to retrieve",
+                },
+              },
+              required: ["id"],
+            },
+          },
+          {
+            name: "create_list",
+            description: "Create a new list/segment in RogerRoger",
+            inputSchema: {
+              type: "object",
+              properties: {
+                title: {
+                  type: "string",
+                  description: "Name of the list",
+                },
+                icon: {
+                  type: "string",
+                  description: "Icon identifier for the list",
+                },
+                sequence: {
+                  type: "number",
+                  description: "Order sequence (optional)",
+                },
+              },
+              required: ["title", "icon"],
+            },
+          },
+          {
+            name: "update_list",
+            description: "Update an existing list/segment",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the list to update",
+                },
+                title: {
+                  type: "string",
+                  description: "Name of the list",
+                },
+                icon: {
+                  type: "string",
+                  description: "Icon identifier for the list",
+                },
+                sequence: {
+                  type: "number",
+                  description: "Order sequence (optional)",
+                },
+              },
+              required: ["id", "title", "icon"],
+            },
+          },
+          {
+            name: "delete_list",
+            description: "Delete a list/segment",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the list to delete",
+                },
+              },
+              required: ["id"],
+            },
+          },
+          {
+            name: "get_tags",
+            description: "Retrieve all tags from RogerRoger",
+            inputSchema: {
+              type: "object",
+              properties: {
+                page: {
+                  type: "number",
+                  description: "Collection page number (default: 1)",
+                },
+                itemsPerPage: {
+                  type: "number",
+                  description: "Items per page, max 30 (default: 15)",
+                },
+              },
+            },
+          },
+          {
+            name: "get_tag",
+            description: "Retrieve a specific tag by ID",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the tag to retrieve",
+                },
+              },
+              required: ["id"],
+            },
+          },
+          {
+            name: "create_tag",
+            description: "Create a new tag in RogerRoger",
+            inputSchema: {
+              type: "object",
+              properties: {
+                title: {
+                  type: "string",
+                  description: "Tag name",
+                },
+                backgroundColor: {
+                  type: "string",
+                  description: "Label background color (optional)",
+                },
+                textColor: {
+                  type: "string",
+                  description: "Label text color (optional)",
+                },
+                description: {
+                  type: "string",
+                  description: "Tag description (optional)",
+                },
+              },
+              required: ["title"],
+            },
+          },
+          {
+            name: "update_tag",
+            description: "Update an existing tag",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the tag to update",
+                },
+                title: {
+                  type: "string",
+                  description: "Tag name",
+                },
+                backgroundColor: {
+                  type: "string",
+                  description: "Label background color (optional)",
+                },
+                textColor: {
+                  type: "string",
+                  description: "Label text color (optional)",
+                },
+                description: {
+                  type: "string",
+                  description: "Tag description (optional)",
+                },
+              },
+              required: ["id", "title"],
+            },
+          },
+          {
+            name: "delete_tag",
+            description: "Delete a tag",
+            inputSchema: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                  description: "The ID of the tag to delete",
+                },
+              },
+              required: ["id"],
+            },
+          },
         ],
       };
     });
@@ -238,6 +540,63 @@ class RogerRogerMCP {
             return await this.getTasks(args || {});
           case "create_task":
             return await this.createTask(args || {});
+          case "get_organizations":
+            return await this.getOrganizations(args || {});
+          case "get_organization":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.getOrganization(String(args.id));
+          case "create_organization":
+            return await this.createOrganization(args || {});
+          case "update_organization":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.updateOrganization(String(args.id), args);
+          case "delete_organization":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.deleteOrganization(String(args.id));
+          case "get_lists":
+            return await this.getLists(args || {});
+          case "get_list":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.getList(String(args.id));
+          case "create_list":
+            return await this.createList(args || {});
+          case "update_list":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.updateList(String(args.id), args);
+          case "delete_list":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.deleteList(String(args.id));
+          case "get_tags":
+            return await this.getTags(args || {});
+          case "get_tag":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.getTag(String(args.id));
+          case "create_tag":
+            return await this.createTag(args || {});
+          case "update_tag":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.updateTag(String(args.id), args);
+          case "delete_tag":
+            if (!args || typeof args !== "object" || !("id" in args)) {
+              throw new Error("Missing required parameter: id");
+            }
+            return await this.deleteTag(String(args.id));
           default:
             throw new Error(`Unknown tool: ${name}`);
         }
@@ -402,6 +761,240 @@ class RogerRogerMCP {
         {
           type: "text",
           text: `Task created successfully: ${JSON.stringify(data, null, 2)}`,
+        },
+      ],
+    };
+  }
+
+  private async getOrganizations(args: any) {
+    const params: Record<string, string> = {};
+    if (args.limit) params.limit = args.limit.toString();
+    if (args.offset) params.offset = args.offset.toString();
+
+    const data = await this.makeRequest("/organizations", { params });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  private async getOrganization(id: string) {
+    const data = await this.makeRequest(`/organizations/${id}`);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  private async createOrganization(args: any) {
+    const data = await this.makeRequest("/organizations", {
+      method: "POST",
+      body: args,
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Organization created successfully: ${JSON.stringify(data, null, 2)}`,
+        },
+      ],
+    };
+  }
+
+  private async updateOrganization(id: string, args: any) {
+    const { id: _, ...updateData } = args;
+    const data = await this.makeRequest(`/organizations/${id}`, {
+      method: "PUT",
+      body: updateData,
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Organization updated successfully: ${JSON.stringify(data, null, 2)}`,
+        },
+      ],
+    };
+  }
+
+  private async deleteOrganization(id: string) {
+    await this.makeRequest(`/organizations/${id}`, {
+      method: "DELETE",
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Organization with ID ${id} deleted successfully`,
+        },
+      ],
+    };
+  }
+
+  private async getLists(args: any) {
+    const params: Record<string, string> = {};
+    if (args.page) params.page = args.page.toString();
+    if (args.itemsPerPage) params.itemsPerPage = args.itemsPerPage.toString();
+
+    const data = await this.makeRequest("/segments", { params });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  private async getList(id: string) {
+    const data = await this.makeRequest(`/segments/${id}`);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  private async createList(args: any) {
+    const data = await this.makeRequest("/segments", {
+      method: "POST",
+      body: args,
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `List created successfully: ${JSON.stringify(data, null, 2)}`,
+        },
+      ],
+    };
+  }
+
+  private async updateList(id: string, args: any) {
+    const { id: _, ...updateData } = args;
+    const data = await this.makeRequest(`/segments/${id}`, {
+      method: "PATCH",
+      body: updateData,
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `List updated successfully: ${JSON.stringify(data, null, 2)}`,
+        },
+      ],
+    };
+  }
+
+  private async deleteList(id: string) {
+    await this.makeRequest(`/segments/${id}`, {
+      method: "DELETE",
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `List with ID ${id} deleted successfully`,
+        },
+      ],
+    };
+  }
+
+  private async getTags(args: any) {
+    const params: Record<string, string> = {};
+    if (args.page) params.page = args.page.toString();
+    if (args.itemsPerPage) params.itemsPerPage = args.itemsPerPage.toString();
+
+    const data = await this.makeRequest("/tags", { params });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  private async getTag(id: string) {
+    const data = await this.makeRequest(`/tags/${id}`);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  private async createTag(args: any) {
+    const data = await this.makeRequest("/tags", {
+      method: "POST",
+      body: args,
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Tag created successfully: ${JSON.stringify(data, null, 2)}`,
+        },
+      ],
+    };
+  }
+
+  private async updateTag(id: string, args: any) {
+    const { id: _, ...updateData } = args;
+    const data = await this.makeRequest(`/tags/${id}`, {
+      method: "PATCH",
+      body: updateData,
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Tag updated successfully: ${JSON.stringify(data, null, 2)}`,
+        },
+      ],
+    };
+  }
+
+  private async deleteTag(id: string) {
+    await this.makeRequest(`/tags/${id}`, {
+      method: "DELETE",
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Tag with ID ${id} deleted successfully`,
         },
       ],
     };
